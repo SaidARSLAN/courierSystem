@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react';
 
 import {GiConfirmed} from 'react-icons/gi'
+import GlobalContext from '../context/MainContext';
 
-const Order = ({order,id}) => {
+const Order = ({order}) => {
 
     const [approved, setApproved] = useState(false)
-
+    const {sendData} =  useContext(GlobalContext);
   const handleClick = () => {
       setApproved(true);
-      sendData(id);
+      sendData(order.id,approved);
   }
 
   return (
-    <div className='border-2 px-2 py-2 flex bg-white space-x-4 rounded-lg' id={id}>
+    <div className='border-2 px-2 py-2 flex bg-white space-x-4 rounded-lg'>
       <div className='flex items-center justify-center space-x-2'>
       <div className='flex flex-col items-center justify-center'>
         <label className='font-bold bg-yellow-400 px-1'>Restoran</label>
