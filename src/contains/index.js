@@ -3,7 +3,7 @@
 
 
 
-export const orders = [
+export const dummyOrders = [
     {
       "resturantName": "Lezzet Köşesi",
       "Address": "Örnekköy Mahallesi 123. Sokak No:4 İstanbul / Beşiktaş",
