@@ -4,6 +4,7 @@ import { Provider } from './context/MainContext';
 import EmptyPackets from './pages/EmptyPackets';
 import MainPage from './pages/MainPage';
 import Completed from './pages/Completed';
+import OrderDetails from './components/OrderDetails';
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
       <div className='flex flex-col items-start justify-start w-full fixed py-4 px-8'>
         <div className='flex items-center justify-center w-full gap-x-4'>
         <button className='bg-green-400 font-bold text-white px-4 py-2'>Müsait</button>
-          <NavLink to='/'  className={({isActive}) => isActive ? "text-sm font-bold bg-yellow-400 text-black px-2 py-4 cursor-pointer w-[100px] flex items-center justify-center rounded-full" : 'text-sm font-bold bg-black text-white  px-2 py-4 cursor-pointer w-[100px] flex items-center justify-center rounded-full'}>Teslim</NavLink>
+          <NavLink to='/'  className={({isActive}) => isActive ? "text-sm font-bold bg-yellow-400 text-black px-2 py-4 cursor-pointer w-[100px] flex items-center justify-center rounded-full" : 'text-sm font-bold bg-black text-white  px-2 py-4 cursor-pointer w-[100px] flex items-center justify-center rounded-full'}>Paketler</NavLink>
           <NavLink to='/empty'className={({isActive}) => isActive ? "text-sm font-bold bg-yellow-400 text-black px-2 py-4 cursor-pointer w-[100px] flex items-center whitespace-nowrap justify-center rounded-full" : 'text-sm font-bold bg-black text-white whitespace-nowrap  px-2 py-4 cursor-pointer w-[100px] flex items-center justify-center rounded-full'}>Boşta Paketler</NavLink>
           <NavLink to='/history' className={({isActive}) => isActive ? "text-sm font-bold bg-yellow-400 text-black px-2 py-4 cursor-pointer w-[100px] flex items-center justify-center rounded-full" : 'text-sm font-bold bg-black text-white  px-2 py-4 cursor-pointer w-[100px] flex items-center justify-center rounded-full'}>Arşiv</NavLink>
           </div>
@@ -26,8 +27,9 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<MainPage /> } />
-          <Route path='/empty' element={<EmptyPackets/>} />
+          <Route path='/empty' element={<EmptyPackets/ >} />
           <Route path='/history' element={<Completed />} />
+          <Route path='/orderDetail' element={<OrderDetails />}/>
         </Routes>
         </Provider>
   )

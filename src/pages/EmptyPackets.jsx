@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import GlobalContext from '../context/MainContext'
 import Order from '../components/Order'
-
 const EmptyPackets = () => {
   const {confirmedOrdersID,orders} =useContext(GlobalContext)
 
