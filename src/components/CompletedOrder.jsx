@@ -1,19 +1,11 @@
-import React, { useContext } from 'react'
-import { useState } from 'react';
+import React, { useContext, useState } from 'react'
 
-import {GiConfirmed} from 'react-icons/gi'
-import GlobalContext from '../context/MainContext';
 
-const Order = ({order}) => {
+const CompletedOrders = ({order}) => {
 
-    const {sendData} =  useContext(GlobalContext);
-  const handleClick = () => {
-      sendData(order.id);
-  }
 
   return (
-    <div className='border-2 px-2 py-2 flex bg-white space-x-2 rounded-lg h-[175px]'>
-      
+    <div className='border-2 px-2 py-2 flex bg-white space-x-4 rounded-lg h-[175px]'>
       <div className='flex items-center justify-center space-x-2'>
       <div className='flex flex-col items-center justify-center'>
         <label className='font-bold bg-yellow-400 px-1'>Restoran</label>
@@ -31,14 +23,11 @@ const Order = ({order}) => {
       </div>
       <div className='flex flex-col items-center justify-center'>
         <h1 className='font-bold whitespace-nowrap bg-yellow-400 px-1'>Tutar</h1>
-        <p className='text-2xl font-extrabold whitespace-nowrap'>{order.Price} TL</p>
+        <p className='text-base font-bold whitespace-nowrap'>{order.Price}</p>
         <p className='font-bold'>{order.Type}</p>
-      </div>
-      <div className='flex items-center justify-center h-full'>
-        <button className='text-sm bg-green-400  font-bold w-[50px]  flex items-center justify-center h-[125px]' onClick={handleClick}><GiConfirmed size={40} color='white'/></button>
       </div>
     </div>
   )
 }
 
-export default Order
+export default CompletedOrders

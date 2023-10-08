@@ -9,7 +9,7 @@ const GlobalContext = createContext();
 export const Provider = ({children}) => {
     const [orders, setOrders] = useState([]);
     const [confirmedOrdersID, setConfirmedOrdersID] = useState([])
-
+    const [completedOrdersID, setCompletedOrdersID] = useState([]);
     useEffect(() => {
         setOrders(dummyOrders);
     },[])
@@ -18,8 +18,11 @@ export const Provider = ({children}) => {
         setConfirmedOrdersID([...confirmedOrdersID,id]);
     }
 
+    const completeData = (id) => {
+        setCompletedOrdersID([...completedOrdersID,id]);
+    }
     return (
-            <GlobalContext.Provider value={{sendData,confirmedOrdersID,orders,completeData}}>
+            <GlobalContext.Provider value={{sendData,confirmedOrdersID,orders,completeData,completedOrdersID}}>
                 {children}
             </GlobalContext.Provider>
     )

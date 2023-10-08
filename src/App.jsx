@@ -3,6 +3,7 @@ import './App.css'
 import { Provider } from './context/MainContext';
 import EmptyPackets from './pages/EmptyPackets';
 import MainPage from './pages/MainPage';
+import Completed from './pages/Completed';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage /> } />
           <Route path='/empty' element={<EmptyPackets/>} />
+          <Route path='/history' element={<Completed />} />
         </Routes>
         </Provider>
   )
