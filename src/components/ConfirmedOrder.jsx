@@ -1,17 +1,21 @@
 import React, { useContext, useState } from 'react'
 import {TbMotorbike} from 'react-icons/tb'
 import GlobalContext from '../context/MainContext'
+import { NavLink } from 'react-router-dom';
 const ConfirmedOrder = ({order}) => {
-
-    const {completeData} = useContext(GlobalContext)
+    const [step, setStep] = useState(0);
+    const {completeData,sendDetailID} = useContext(GlobalContext)
     const [onTheWay, setonTheWay] = useState(false)
 
     const handleDelivery = () => {
         completeData(order.id);
     }
-
+    const handleDetail = () => {
+        sendDetailID(order.id);
+      
+    }
   return (
-    <div className='border-2 px-2 py-2 flex bg-white space-x-4 rounded-lg h-[175px]'>
+    <div  className='border-2 px-2 py-2 flex bg-white space-x-4 rounded-lg h-[175px]' onClick={handleDetail}>
       <div className='flex items-center justify-center space-x-2'>
       <div className='flex flex-col items-center justify-center'>
         <label className='font-bold bg-yellow-400 px-1'>Restoran</label>
@@ -34,6 +38,7 @@ const ConfirmedOrder = ({order}) => {
       </div>
 
       <div className='flex flex-col items-center justify-center space-y-1'>
+        <NavLink to='/orderDetail' className='font-bold bg-purple-600 px-2 py-2 rounded-full text-sm'>Detay</NavLink>
         <button className='text-sm bg-yellow-400 px-2 py-2 font-bold w-[60px] rounded-full flex items-center justify-center' onClick={() => {setonTheWay(true)}}>{onTheWay ? <TbMotorbike size={30} /> : "Yolda"}</button>
         <button className='text- sm bg-red-600 px-2 py-2 font-bold w-[60px] rounded-full' onClick={handleDelivery}>Teslim</button>
       </div>
