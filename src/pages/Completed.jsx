@@ -5,7 +5,7 @@ import GlobalContext from '../context/MainContext'
 const Completed = () => {
     const {completedOrdersID,orders} = useContext(GlobalContext)
   return (
-    <div className='flex items-center justify-center space-y-4 w-full flex-col py-24 px-4'>
+    <div className='flex items-center justify-center space-y-4 w-full flex-col px-4'>
         <div className='flex items-center justify-center space-y-4 w-full flex-col py-24'>
         {orders.map((order) => {
               if (completedOrdersID.includes(order.id))
